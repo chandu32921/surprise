@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Protected Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to bottom right, #000000, #ffffff);
+      color: white;
+    }
+
+    #password-form {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #message {
+      margin-top: 10px;
+      color: #ff0000;
+      font-weight: bold;
+    }
+
+    #hint {
+      font-style: italic;
+      color: #999;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="password-form">
+    <label for="password">Enter Password:</label>
+    <input type="password" id="password" />
+    <button onclick="checkPassword()">Submit</button>
+    <p id="message"></p>
+    <p id="hint">Hint: "we together"</p>
+  </div>
+
+  <script>
+    const correctPassword = "macha"; // Replace with your actual password
+
+    function checkPassword() {
+      const enteredPassword = document.getElementById("password").value.toLowerCase(); // Convert to lowercase for case-insensitivity
+      const messageElement = document.getElementById("message");
+
+      if (enteredPassword === correctPassword) {
+        messageElement.textContent = "Correct password! Redirecting...";
+        // Redirect to index1.html
+        window.location.href = "light.html";
+      } else {
+        messageElement.textContent = "Incorrect password. Please try again.";
+      }
+    }
+  </script>
+</body>
+</html>
